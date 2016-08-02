@@ -1,0 +1,17 @@
+1. What is Ruby?
+   Ruby is an object-oriented language that is similar to others language like Python and Perl.
+
+2. What pros/cons you considered from the point explained in the class?
+ - Pros:
+   Don't need libraries
+   Short and less lines of code
+   An easy way of coding
+
+ - Cons:
+   Can't use multiple inheritances
+   Could be a little dangerous because is very permissible.
+
+3. According what we talked, what are the 3 testing tiers?
+   * Services
+   * Backend
+   * UI
