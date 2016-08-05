@@ -1,0 +1,140 @@
+#Example1
+
+class Example
+	def test_local_variable
+		value = 5
+		another_value = 10
+		addtion_of_values = value + another_value
+		puts"#{addtion_of_values}"
+		puts local_variables				#Imprime todas la variables locales
+	end
+end
+
+Example.new.test_local_variable
+
+
+
+15
+value
+another_value
+addtion_of_values
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+#Example2
+
+class Customer
+	def initialize(id, name, addr)
+		@cust_id = id
+		@cust_name = name
+		@cust_addr = addr
+	end
+	def display_details()
+		puts"Customer id: #{@cust_id}"
+		puts"Customer name: #{@cust_name}"
+		puts"Customer address: #{@cust_addr}"
+	end
+	def display_name
+        puts "Customer name: #{@cust_name}"
+    end
+	def change_name
+		@cust_name = "Pepito"
+	end
+end
+
+cust1 = Customer.new("1","Ana","Sopocachi,LP")
+cust2 = Customer.new("2","Juan","Melchor,CBBA")
+
+cust1.display_details()
+cust2.display_details()
+cust1.display_name
+cust1.change_name
+cust1.display_name
+
+
+
+Customer id: 1
+Customer name: Ana
+Customer address: Sopocachi,LP
+Customer id: 2
+Customer name: Juan
+Customer address: Melchor,CBBA
+Customer name: Ana
+Customer name: Pepito
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+
+#Example3
+
+$example_of_global = 6
+module ModuleTest
+	puts"Inside module"
+	puts $example_of_global
+end
+
+def method_test
+	puts"Inside method"
+	puts $example_of_global
+end
+
+#method_test
+
+class Some_test
+	puts"Inside class"
+	puts $example_of_global
+	$example_of_global = 75
+end
+
+method_test
+puts"Inside toplevel"
+puts $example_of_global
+puts global_variables.include?:$example_of_global
+
+
+Inside module
+6
+Inside class
+6
+Inside method
+75
+Inside toplevel
+75
+true
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+
+#Example4
+
+class Polygon
+	@@sides = 10
+	def self.sides
+		@@sides
+	end
+end
+
+puts Polygon.sides
+
+class Triangle < Polygon
+	@@sides = 3
+end
+
+puts Triangle.sides
+puts Polygon.sides
+
+class Rectangle < Polygon
+	@@sides = 4
+end
+
+puts Polygon.sides
+
+
+10
+3
+3
+4
+[Finished in 0.1s]
