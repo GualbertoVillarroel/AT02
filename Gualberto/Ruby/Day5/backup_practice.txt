@@ -1,0 +1,193 @@
+#Practice 1
+
+class Father
+     @@money = 100
+     def self.money
+        @@money
+     end
+end
+ 
+class Son_1 < Father
+   def self.mount1
+      moneySon1 = 10
+      @@money = @@money-moneySon1
+      moneySon1	
+   end
+end
+ 
+class Son_2 < Father
+   def self.mount2
+     moneySon2 = 25
+     @@money -= moneySon2
+     moneySon2
+   end
+end
+ 
+class Son_3 < Father
+   def self.mount3
+      moneySon3 = 50
+      @@money -= moneySon3
+      moneySon3
+   end
+end
+ 
+puts"Father's money: #{Father.money}"
+puts"The first son is taking: #{Son_1.mount1}"
+puts"The second son is taking: #{Son_2.mount2}"
+puts"The third son is taking: #{Son_3.mount3}"
+puts"Father's money at the final: #{Father.money} "
+
+
+
+
+Father's money: 100
+The first son is taking: 10
+The second son is taking: 25
+The third son is taking: 50
+Father's money at the final: 15 
+[Finished in 0.1s]
+
+
+
+-------------------------------------------------------------------
+#Practice 2
+
+class Person
+	attr_writer :name
+	attr_reader :name
+	attr_accessor :message
+#=begin
+	def show
+		puts"Hi #{@name}"
+	end
+#=end
+end
+
+per = Person.new
+per.name = "Gualy"
+per.show
+
+#puts "Hi #{per.name}"
+
+per.message = "Have a nice day"
+puts per.message
+
+
+Hi Gualy
+Have a nice day
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+#Practice 3
+
+class MyCar
+	attr_writer :year
+	attr_reader :year
+	attr_writer :color
+	attr_reader :color
+	attr_accessor :model
+	attr_reader :current_speed
+	
+	def initialize
+		@current_speed = 0
+	end
+
+	def speed_up(number) 
+      @current_speed += number 
+      puts "You accelerate to  #{current_speed} mph." 
+	end
+
+	def brake(number) 
+      @current_speed -= number 
+      puts "You decelerate to  #{current_speed} mph." 
+	end
+
+	def car_off
+      @current_speed = 0
+      puts "The car is off the current speed is: #{current_speed} mph." 
+	end
+	
+
+end
+
+c = MyCar.new
+c.year = "2016"
+puts "Year: #{c.year}"
+puts "Color: #{c.color = "Black"}"
+puts "Model: #{c.model = "Mustang"}"
+
+puts "Initial speed: #{c.current_speed} mph"
+c.speed_up(50)
+c.brake(10)
+c.car_off
+
+
+Year: 2016
+Color: Black
+Model: Mustang
+Initial speed: 0 mph
+You accelerate to  50 mph.
+You decelerate to  40 mph.
+The car is off the current speed is: 0 mph.
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+#Practice4
+
+class MyCar
+	attr_reader :year
+	attr_accessor :color
+	attr_accessor :model
+	attr_reader :current_speed
+	
+	def initialize(year)
+		@current_speed = 0
+		@year = year
+	end
+
+	def speed_up(number) 
+      @current_speed += number 
+      puts "You accelerate to  #{current_speed} mph." 
+	end
+
+	def brake(number) 
+      @current_speed -= number 
+      puts "You decelerate to  #{current_speed} mph." 
+	end
+
+	def car_off
+      @current_speed = 0
+      puts "The car is off the current speed is: #{current_speed} mph." 
+	end
+	
+
+end
+
+c = MyCar.new(2016)
+#c.year = "2016"
+puts "Year: #{c.year}"
+puts "Color: #{c.color = "Black"}"
+puts "Model: #{c.model = "Mustang"}"
+
+puts "Initial speed: #{c.current_speed} mph"
+c.speed_up(50)
+c.brake(10)
+c.car_off
+
+puts "Changing the Color to: #{c.color = "Dark Black"}"
+puts "Actual year of the car: #{c.year}"
+
+
+
+Year: 2016
+Color: Black
+Model: Mustang
+Initial speed: 0 mph
+You accelerate to  50 mph.
+You decelerate to  40 mph.
+The car is off the current speed is: 0 mph.
+Changing the Color to: Dark Black
+Actual year of the car: 2016
+[Finished in 0.1s]
