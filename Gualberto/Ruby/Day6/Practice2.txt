@@ -1,0 +1,33 @@
+--Suggestion for code guideline--
+
+*Format (int, float, string): 
+var_string = gets.chomp
+var_integer = gets.chomp.to_i
+var_float = gets.chomp.to_f 
+
+
+*Classes: Set the name of classes with an upletter
+For example:
+
+class NewClass
+
+end
+
+
+*Methods: Use camelCase for the name of the methods, don't use parenthesis to call it
+Example:
+
+def method1 name 
+      puts “Hello #{name}" 
+end 
+method1 "man"
+
+
+*Variables, Getter/Setter: Only use accessor if it is  really needed
+attr_reader :var1
+attr_writer :var2
+attr_accessor :var3
+
+
+*If condition: Use the short-if expression
+result = a == 7 ? a = 1 : a = 2

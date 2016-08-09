@@ -1,0 +1,73 @@
+#Example1
+
+def customer_id name, customer_id
+	@name = name
+	@customer_id = customer_id
+
+	#puts "Thanks to be our customer"  if customer_id > 100
+
+	puts result = customer_id > 100? "Thanks to be our customer" : "Thanks"
+	puts"#{@name}".upcase()
+	puts"Hi #{@name.upcase()} You are our cutomer #{@customer_id} #{result}" 
+
+end
+
+=begin
+def customer_id(name, customer_id)
+	@name = name
+	@customer_id = customer_id
+
+	#puts "Thanks to be our customer"  if customer_id > 100
+
+	puts result = customer_id > 100? "Thanks to be our customer" : "Thanks"
+	puts"#{@name}".upcase()
+	puts"Hi #{@name.upcase()} You are our cutomer #{@customer_id} #{result}" 
+
+end
+=end
+
+customer_id "new", 101
+#customer_id("new", 101)
+
+
+
+Thanks to be our customer
+NEW
+Hi NEW You are our cutomer 101 Thanks to be our customer
+[Finished in 0.1s]
+
+
+-------------------------------------------------------------------
+#Example2
+
+def celsiusToFahrenheit celsius
+	fahrenheit = (((9* celsius ) /5) + 32)
+	return fahrenheit
+end
+
+def fahrenheitToCelsius fahrenheit
+	(5*(fahrenheit - 32))/9
+
+end
+
+puts"Insert a grade in celsius:"
+c = gets.chomp.to_f
+puts "Celsius To Fahrenheit: #{celsiusToFahrenheit c}"
+
+puts"Insert a grade in fahrenheit:"
+f = gets.chomp.to_f
+puts "Fahrenheit To Celsius: #{fahrenheitToCelsius f}"
+
+
+C:\BDT\AT02\Gualberto\Ruby\Day6>ruby example2.rb
+Insert a grade in celsius:
+34
+Celsius To Fahrenheit: 93.2
+Insert a grade in fahrenheit:
+93.2
+Fahrenheit To Celsius: 34.0
+
+
+
+
+
