@@ -1,0 +1,132 @@
+#Example 1
+
+def calculation seconds
+	min = seconds/60
+	hours= min/60
+	
+	return min, hours
+end
+ 
+print"Insert the seconds:"
+sec = gets.chomp.to_i
+
+minutes, hours = calculation sec
+puts "Minutes: #{minutes}, Hours: #{hours} "
+
+............................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day7>ruby example1.rb
+Insert the seconds:7000
+Minutes: 116, Hours: 1
+
+
+
+
+////////////////////////////////////////////////////////////
+
+#Example2
+
+def test_block
+   puts "You are in the method"
+   yield
+   puts "You are again back to the method"
+   yield
+end
+
+test_block {puts "You are in the block"}
+
+............................................................
+
+You are in the method
+You are in the block
+You are again back to the method
+You are in the block
+[Finished in 0.1s]
+
+
+
+////////////////////////////////////////////////////////////
+
+#Example3
+
+value_1 = 10  
+
+5.times do | value_1 |  
+puts " value_1 inside the block: #{value_1 }"  
+end  
+  
+puts " value_1 outside the block: #{value_1 }" 
+
+............................................................
+
+ value_1 inside the block: 0
+ value_1 inside the block: 1
+ value_1 inside the block: 2
+ value_1 inside the block: 3
+ value_1 inside the block: 4
+ value_1 outside the block: 10
+[Finished in 0.1s]
+
+
+
+////////////////////////////////////////////////////////////
+
+#Example4
+
+value_1 = 10  
+
+5.times do | value_2; value_1 |
+ 
+value_1 = value_2  
+puts " value_1 inside the block: #{value_1 }"  
+puts " value_2 inside the block: #{value_2 }"
+end  
+  
+puts " value_1 outside the block: #{value_1 }" 
+
+............................................................
+
+ value_1 inside the block: 0
+ value_2 inside the block: 0
+ value_1 inside the block: 1
+ value_2 inside the block: 1
+ value_1 inside the block: 2
+ value_2 inside the block: 2
+ value_1 inside the block: 3
+ value_2 inside the block: 3
+ value_1 inside the block: 4
+ value_2 inside the block: 4
+ value_1 outside the block: 10
+[Finished in 0.1s]
+
+
+
+////////////////////////////////////////////////////////////
+
+#Example5
+
+def method_block
+	##some code
+	@result = 0
+	yield
+	puts "The value obtained is #{@result}"
+end
+
+#method_block {@result = 15 * 25}
+
+
+method_block do
+	@result = @result == 0 ? 25+15 : 25*5
+	puts "I changed the value into the block"
+	## any other code  that you would like to introduce into the method
+
+............................................................
+
+I changed the value into the block
+The value obtained is 40
+
+
+
+////////////////////////////////////////////////////////////
+[Finished in 0.1s]
+end

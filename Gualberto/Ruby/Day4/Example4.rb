@@ -7,14 +7,14 @@ end
 
 puts Polygon.sides
 
-class Triangle < Polygon
+class Triangle < Polygon	#Inheritance
 	@@sides = 3
 end
 
 puts Triangle.sides
 puts Polygon.sides
 
-class Rectangle < Polygon
+class Rectangle < Polygon		#Inheritance
 	@@sides = 4
 end
 

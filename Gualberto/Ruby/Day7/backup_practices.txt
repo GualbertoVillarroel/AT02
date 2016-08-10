@@ -1,0 +1,44 @@
+#Practice1
+
+def method_block
+	@result = 100
+	yield
+	puts "The value now is #{@result}"
+end
+
+
+method_block do
+	@result = @result == 100 ? @result + 11 : 1000*5
+	puts "The value was changed into the block"
+	
+end 
+
+............................................................
+
+The value was changed into the block
+The value now is 111
+[Finished in 0.1s]
+
+////////////////////////////////////////////////////////////
+
+#Practice2
+
+def block
+	@greatting = "How are you?"
+	yield(@value_name, @value_number)  
+end  
+
+print"Introduce your name: "
+@value_name = gets.chomp
+print"Introduce your age: "
+@value_number = gets.chomp.to_i
+
+block {|string, number| puts "Hi " + string +  'you are ' + number.to_s + " years old. " + @greatting}
+
+............................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day7>ruby practice2.rb
+Introduce your name: Gualy
+Introduce your age: 177
+Hi Gualyyou are 177 years old. How are you?
+
