@@ -1,0 +1,111 @@
+#Practice1
+
+module Greetings
+	def morning
+		puts"Hi friend"
+	end
+
+	def afternoon
+		puts"Good Afternoon"
+	end
+
+	def night
+		puts"Good night"
+	end
+end
+
+module Bye
+	def bye1
+		puts"Good bye"
+	end
+
+	def bye2
+		puts"See you later"
+	end
+
+	def bye3
+		puts"Take care"
+	end
+end
+
+
+class MyClass
+	include Greetings
+	include Bye
+end
+
+m = MyClass.new
+m.morning
+m.afternoon
+m.night
+m.bye1
+m.bye2
+m.bye3
+
+.......................................................
+
+Hi friend
+Good Afternoon
+Good night
+Good bye
+See you later
+Take care
+[Finished in 0.1s]
+
+///////////////////////////////////////////////////////
+
+#Practice2
+
+#\Class.rb
+
+require_relative "Module1"
+require_relative "Module2"
+
+Greetings.morning
+Greetings.afternoon
+Greetings.night
+Bye.bye1
+Bye.bye2
+Bye.bye3
+
+#\Module1.rb
+
+module Greetings
+	def Greetings.morning
+		puts"Hi friend"
+	end
+
+	def Greetings.afternoon
+		puts"Good Afternoon"
+	end
+
+	def Greetings.night
+		puts"Good night"
+	end
+end
+
+#\Module2.rb
+
+module Bye
+	def Bye.bye1
+		puts"Good bye"
+	end
+
+	def Bye.bye2
+		puts"See you later"
+	end
+
+	def Bye.bye3
+		puts"Take care"
+	end
+end
+
+.......................................................
+
+Hi friend
+Good Afternoon
+Good night
+Good bye
+See you later
+Take care
+[Finished in 0.1s]
