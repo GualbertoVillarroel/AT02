@@ -1,10 +1,10 @@
 #Example1
 
 nums = [1, 3.0, "something"]
-puts nums[2] 			# => something
+puts nums[2] 						# => something
 
 nums = [1, 3.0, "something", "something else"]
-puts nums[-1] 			 # => something else
+puts nums[-1] 						 # => something else
 
 puts [1, 3.0, "something", "something else"].last  			# => something else
 puts [1, 3.0, "something", "something else"].first 			# => 1
@@ -12,10 +12,12 @@ puts [1, 3.0, "something", "something else"].first 			# => 1
 mystuff = ["samsung","nokia", "iphone"]
 puts mystuff.length 	# => 3
 
+mystuff = %w{samsung nokia iphone}
+puts mystuff.inspect
 
-my_array = [1,2,5,7,11]		# => 1 2 5 7 11
-puts my_array 
-puts my_array.inspect		# => [1, 2, 5, 7, 11]
+my_array = [1,2,5,7,11]		
+puts my_array 				# => 1 2 5 7 11
+puts my_array.inspect			# => [1, 2, 5, 7, 11]
 p my_array 				# => [1, 2, 5, 7, 11]
 
 .........................................................
@@ -25,6 +27,7 @@ something else
 something else
 1
 3
+["samsung", "nokia", "iphone"]
 1
 2
 5
@@ -32,4 +35,70 @@ something else
 11
 [1, 2, 5, 7, 11]
 [1, 2, 5, 7, 11]
-[Finished in 0.2s]
+[Finished in 0.1s]
+
+/////////////////////////////////////////////////////////
+
+#Example2
+
+puts [1,2,3] & [3,4,5]  #  prints 3
+puts " "
+puts [1,2,3] + [3,4,5]  #  prints 1,2,3,3,4,5
+puts " "
+puts [1,2,3] - [3,4,5]  #  prints 1,2
+
+.........................................................
+
+3
+ 
+1
+2
+3
+3
+4
+5
+ 
+1
+2
+[Finished in 0.1s]
+
+/////////////////////////////////////////////////////////
+
+#Example3
+
+alpha = ["a","b","c","d","e","f"]
+puts "pop element = " + alpha.pop   
+puts alpha.inspect       # ["a"," b", "c", "d", "e"]
+
+puts" "
+
+alpha = ["a","b","c"]   
+alpha.push("x","y","z")
+puts alpha.inspect      # ["a", "b", "c", "x", "y", "z"]
+
+puts" "
+
+alpha = ["a","b","c","d","e","f"]
+puts "shift element = " + alpha.shift
+p alpha     # ["b", "c", "d", "e", "f"]
+
+puts" "
+
+alpha = ["a","b","c"]
+alpha.unshift("x","y","z")
+p alpha      # ["x", "y", "z", "a", "b", "c"]
+
+.........................................................
+
+pop element = f
+["a", "b", "c", "d", "e"]
+ 
+["a", "b", "c", "x", "y", "z"]
+ 
+shift element = a
+["b", "c", "d", "e", "f"]
+ 
+["x", "y", "z", "a", "b", "c"]
+[Finished in 0.1s]
+
+

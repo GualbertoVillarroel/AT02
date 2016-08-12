@@ -1,0 +1,165 @@
+#Practice1
+
+module Arrayy
+	def Arrayy.returning_array
+		nums = [1, 2, 3, 4]
+		return nums
+	end
+	def Arrayy.printing_array nums
+		puts "The complete array is: #{nums.inspect}"
+	end
+	def Arrayy.printing_firstElement_array nums
+		puts "The first element is: #{nums.first}"
+	end
+	def Arrayy.printing_lastElement_array nums
+		puts "The last element is: #{nums.last}"
+	end
+	def Arrayy.printing_common_differentArrays nums
+		common = nums & [3, 7, 11]
+		puts "The common element in both arrays is: #{common}"
+
+	end
+end
+
+v = Arrayy.returning_array
+Arrayy.printing_array v
+Arrayy.printing_firstElement_array v
+Arrayy.printing_lastElement_array v
+Arrayy.printing_common_differentArrays v
+
+................................................................
+
+The complete array is: [1, 2, 3, 4]
+The first element is: 1
+The last element is: 4
+The common element in both arrays is: [3]
+[Finished in 0.1s]
+
+////////////////////////////////////////////////////////////////
+
+#Example2
+
+class MyClass
+	def new_array
+		print"Insert the number of elements in the array: "
+		num_elements = gets.chomp.to_i
+
+		array = Array.new
+		
+		num_elements.times do | value_1 |  
+		puts"Insert an element"
+		elem = gets.chomp.to_i
+		array.push(elem)
+		end
+		
+		return array
+	end
+	
+	def show_array arrayCreated
+		puts arrayCreated.inspect
+	end
+end
+
+sc = MyClass.new
+arrayCreated = sc.new_array
+sc.show_array arrayCreated
+
+................................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day9>ruby practice2.rb
+Insert the number of elements in the array: 3
+Insert an element
+1
+Insert an element
+2
+Insert an element
+3
+[1, 2, 3]
+
+C:\BDT\AT02\Gualberto\Ruby\Day9>
+
+////////////////////////////////////////////////////////////////
+
+#Example3
+
+class MyClass
+	def method1
+		puts"Insert the number of elements in the arrays "
+		num_elements = gets.chomp.to_i
+
+		arrayInt = Array.new
+		
+		num_elements.times do | value_1 |  
+		print"Insert a number element: "
+		elem = gets.chomp.to_s
+		arrayInt.push(elem)
+		end
+
+		arrayString = Array.new
+		num_elements.times do | value_2 |  
+		print"Insert a letter element: "
+		elem = gets.chomp.to_s
+		arrayString.push(elem)
+		end
+
+		arrayMix = arrayInt + arrayString
+		return arrayInt, arrayString, arrayMix
+
+	end
+
+	def method2 arr1, arr2
+		common = arr1 & arr2
+		puts "The common elements in both arrays are: #{common}"
+		puts "The first element of the array of numbers is: #{arr1.first}"
+		puts "The first element of the array of letters is: #{arr2.first}"
+		puts "The last element of the array of numbers is: #{arr1.last}"
+		puts "The last element of the array of letters is: #{arr2.last}"
+	end
+
+	def method3 arr1, arr2
+		arr_extracted = Array.new
+		arr_extracted.push(arr1.shift)
+		arr_extracted.push(arr2.pop)
+		common = arr1 & arr2
+		puts"The new mixed array with some common elements extracted is: #{common}"
+		return arr_extracted
+	end
+
+	def method4 arrayExtracted
+		puts"The array after extract some elements is: #{arrayExtracted}"
+	end
+end
+
+sc = MyClass.new
+numbers, letters, mixed = sc.method1
+puts"The first array of numbers is: #{numbers}"
+puts"The second array of letters is: #{letters}"
+puts"The thrird array mixed of numbers and letters is: #{mixed}"
+sc.method2 numbers, letters
+arrayExtracted = sc.method3 numbers, letters
+sc.method4 arrayExtracted
+
+................................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day9>ruby practice3.rb
+Insert the number of elements in the arrays
+4
+Insert a number element: 1
+Insert a number element: 2
+Insert a number element: 3
+Insert a number element: 4
+Insert a letter element: a
+Insert a letter element: 2
+Insert a letter element: 3
+Insert a letter element: d
+The first array of numbers is: ["1", "2", "3", "4"]
+The second array of letters is: ["a", "2", "3", "d"]
+The thrird array mixed of numbers and letters is: ["1", "2", "3", "4", "a", "2", "3", "d"]
+The common elements in both arrays are: ["2", "3"]
+The first element of the array of numbers is: 1
+The first element of the array of letters is: a
+The last element of the array of numbers is: 4
+The last element of the array of letters is: d
+The new mixed array with some common elements extracted is: ["2", "3"]
+The array after extract some elements is: ["1", "d"]
+
