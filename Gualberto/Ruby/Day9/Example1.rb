@@ -10,8 +10,10 @@ puts [1, 3.0, "something", "something else"].first 			# => 1
 mystuff = ["samsung","nokia", "iphone"]
 puts mystuff.length 	# => 3
 
+mystuff = %w{samsung nokia iphone}
+puts mystuff.inspect
 
-my_array = [1,2,5,7,11]		# => 1 2 5 7 11
-puts my_array 
+my_array = [1,2,5,7,11]		
+puts my_array 				# => 1 2 5 7 11
 puts my_array.inspect		# => [1, 2, 5, 7, 11]
 p my_array 				# => [1, 2, 5, 7, 11]
