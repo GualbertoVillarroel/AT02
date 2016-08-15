@@ -90,16 +90,16 @@ class MyClass
 		arrayInt = Array.new
 		
 		num_elements.times do | value_1 |  
-		print"Insert a number element: "
-		elem = gets.chomp.to_s
-		arrayInt.push(elem)
+			print"Insert a number element: "
+			elem = gets.chomp.to_s
+			arrayInt.push(elem)
 		end
 
 		arrayString = Array.new
-		num_elements.times do | value_2 |  
-		print"Insert a letter element: "
-		elem = gets.chomp.to_s
-		arrayString.push(elem)
+			num_elements.times do | value_2 |  
+			print"Insert a letter element: "
+			elem = gets.chomp.to_s
+			arrayString.push(elem)
 		end
 
 		arrayMix = arrayInt + arrayString
@@ -163,3 +163,81 @@ The last element of the array of letters is: d
 The new mixed array with some common elements extracted is: ["2", "3"]
 The array after extract some elements is: ["1", "d"]
 
+
+////////////////////////////////////////////////////////////////
+
+#Example4
+
+class MyClass
+	attr_reader :newHash
+
+	def create_hash
+		print"Insert the length of the hash: "
+		num_hash = gets.chomp.to_i
+
+		@newHash = Hash.new
+		
+		num_hash.times do | key, value |  
+			print"Insert a key: "
+			key = gets.chomp.to_s
+			print"Insert a value: "
+			value = gets.chomp.to_s
+
+			@newHash.store key,value
+		end
+
+		p @newHash
+	end
+
+	def print_hashKey hash
+		puts"The keys are: #{hash.keys}"
+	end
+
+	def print_hashValue hash
+		puts"The values are: #{hash.values}"
+	end
+
+	def print_hash hash
+		puts"The hash is: #{hash}"
+	end
+
+	def isAKey hash
+		print"Insert a key to search in the hash: "
+		key = gets.chomp.to_s
+		puts hash.has_key?(key)
+
+	end
+	def isAValue hash
+		print"Insert a value to search in the hash: "
+		value = gets.chomp.to_s
+		puts hash.has_value?(value)
+	end
+end
+
+sc = MyClass.new
+sc.create_hash
+h = sc.newHash
+sc.print_hashKey h
+sc.print_hashValue h
+sc.print_hash h
+sc.isAKey h
+sc.isAValue h
+
+................................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day9>ruby practice4.rb
+Insert the length of the hash: 3
+Insert a key: a
+Insert a value: 1
+Insert a key: b
+Insert a value: 2
+Insert a key: c
+Insert a value: 3
+{"a"=>"1", "b"=>"2", "c"=>"3"}
+The keys are: ["a", "b", "c"]
+The values are: ["1", "2", "3"]
+The hash is: {"a"=>"1", "b"=>"2", "c"=>"3"}
+Insert a key to search in the hash: b
+true
+Insert a value to search in the hash: 7
+false
