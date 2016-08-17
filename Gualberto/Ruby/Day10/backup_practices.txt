@@ -40,3 +40,153 @@ Insert a name: Gualy
 Insert an age: 29
 The age in hours is: 254040 hrs
 You are adult
+
+
+////////////////////////////////////////////////////////
+#Practice2
+
+class NewClass
+	def newPerson		
+		print"Insert the number of persons to register: "
+		amountOfPersons = gets.chomp.to_i
+
+		@hashPerson = Hash.new
+
+		amountOfPersons.times do | name, id |
+			puts"Insert a name for the user: "
+			name = gets.chomp.to_s
+			puts"Insert an ID for the user: "
+			id = gets.chomp.to_i
+
+			@hashPerson.store name,id
+		end
+
+		
+	end
+
+	def showHashPerson
+		puts""
+		puts"The hash is: "
+		p @hashPerson
+		puts""
+	end
+
+	def modifyHashPerson
+		puts"The names in uppercase are:"
+		@hashPerson.each{|name,id| puts "#{name.upcase()}"}
+		
+		puts"" 
+
+		@hashPerson.each_with_index do |(name, id), index|
+      		puts"#{name} is in the position [#{index}]"
+		end
+
+		puts""
+
+		personsArray = Array.new
+		puts"The array with the names in uppercase is:"
+		@hashPerson.each{|name,id| personsArray.push(name.upcase())}
+		puts personsArray
+		
+	end
+
+	def bye
+		puts""
+		@hashPerson.each{|name,id| puts "Good Bye #{name}"}
+	end
+end
+
+sc = NewClass.new
+sc.newPerson
+sc.showHashPerson
+sc.modifyHashPerson
+sc.bye
+
+........................................................
+
+
+C:\BDT\AT02\Gualberto\Ruby\Day10>ruby practice2.rb
+Insert the number of persons to register: 3
+Insert a name for the user:
+Peter
+Insert an ID for the user:
+1
+Insert a name for the user:
+Katy
+Insert an ID for the user:
+2
+Insert a name for the user:
+Megan
+Insert an ID for the user:
+3
+
+The hash is:
+{"Peter"=>1, "Katy"=>2, "Megan"=>3}
+
+The names in uppercase are:
+PETER
+KATY
+MEGAN
+
+Peter is in the position [0]
+Katy is in the position [1]
+Megan is in the position [2]
+
+The array with the names in uppercase is:
+PETER
+KATY
+MEGAN
+
+Good Bye Peter
+Good Bye Katy
+Good Bye Megan
+
+////////////////////////////////////////////////////////
+#Practice 3
+
+def user
+	print"Insert a username: "
+	usr = gets.chomp.to_s
+
+	case usr
+		#Se debe usar asterisco para que se puedan ingresar todos los caracteres
+		when /^[a-z0-9_]*$/; puts"The user was created" 
+		else; puts"The user cannot be created" 
+	end
+
+end
+
+def passwd
+	print"Insert a password: "
+	pass = gets.chomp.to_s
+
+	case pass
+		when /^[a-z0-9A-Z]{8,16}*$/; puts"The password was created" 
+		else; puts"The password cannot be created" 
+	end
+	    
+end
+
+def email
+	print"Insert an email: "
+	mail = gets.chomp.to_s
+
+	case mail
+		when /^[a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/ ; puts"The email was created" 
+		else; puts"The email cannot be created" 
+	end
+end
+
+user
+passwd
+email
+
+........................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day10>ruby practice3.rb
+Insert a username: gualy777
+The user was created
+Insert a password: abcdEFG1234
+The password was created
+Insert an email: gualy@hotmail.com.bo
+The email was created

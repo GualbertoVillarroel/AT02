@@ -17,9 +17,9 @@ puts "Hi #{name} How are you?"
 #---------------------
 
 =begin
-puts"Some Test".chomp(' Test') # => “Some"
-puts"Some Test\r\n".chomp # => "Some Test"
-puts"\tRobert Martin\r\n".strip # => "Robert Martin"
+puts"Some Test".chomp(' Test') 		# => “Some"
+puts"Some Test\r\n".chomp 			# => "Some Test"
+puts"\tRobert Martin\r\n".strip 	# => "Robert Martin"
 =end
 
 #---------------------
@@ -34,6 +34,6 @@ puts"A bigger number is #{bigger}"
 #---------------------
 
 
-puts"Give me a number: "
-number = gets.chomp.to_f
-puts"The floating number is : #{number}"
+#puts"Give me a number: "
+#number = gets.chomp.to_f
+#puts"The floating number is : #{number}"

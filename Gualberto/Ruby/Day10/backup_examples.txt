@@ -21,3 +21,57 @@ end
 1 is less than 5
 4 is less than 5
 [Finished in 0.1s]
+
+
+////////////////////////////////////////////////////////////
+#Example2
+
+hash = ['a','b','c'].each_with_index {|a,index| puts index}
+puts""
+
+hash.each_with_index do |(key, value), index|
+	puts index
+end
+
+puts""
+
+$i = 0
+$num = 5
+
+while $i < $num  do
+   puts("Inside the loop i = #$i" )
+   $i +=1
+end
+
+puts""
+
+
+$i = 0
+$num = 5
+begin
+   puts("Inside the loop i = #$i" )
+   $i +=1
+end while $i < $num
+
+...........................................................
+
+0
+1
+2
+
+0
+1
+2
+
+Inside the loop i = 0
+Inside the loop i = 1
+Inside the loop i = 2
+Inside the loop i = 3
+Inside the loop i = 4
+
+Inside the loop i = 0
+Inside the loop i = 1
+Inside the loop i = 2
+Inside the loop i = 3
+Inside the loop i = 4
+[Finished in 0.1s]

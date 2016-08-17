@@ -1,0 +1,116 @@
+#Practice1
+require	'singleton'
+class MyClass  
+	include Singleton
+	attr_accessor :user
+	attr_reader :visitors
+	attr_reader :hash
+
+	def initialize		  
+		@user = "Guest"
+		@msg = "Welcome to the city"
+		@visitors = 0
+		@hash = Hash.new 
+
+		@hash.store @user, @msg
+		p @hash
+		puts"Number visitor: #{@visitor}"
+	end
+
+	def info
+
+
+		$bool = false
+		
+		begin
+		  	print"Insert an user: "
+			var_user = gets.chomp.to_s
+			print"Insert message: "
+			var_msg = gets.chomp.to_s
+				
+			@user = var_user
+			@visitors += 1
+			@hash.store var_user, var_msg
+
+			puts"Do you want to add other user? y/n"
+			a = gets.chomp.to_s
+			if a == "n" then $bool = true end
+
+		end while $bool == false
+
+
+		
+	end
+end
+
+sc = MyClass.instance
+sc.info
+c = MyClass.instance.user
+puts "the last user defined is: " + c
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day11>ruby practice1.rb
+{"Guest"=>"Welcome to the city"}
+Number visitor:
+Insert an user: pepe
+Insert message: hola
+Do you want to add other user? y/n
+y
+Insert an user: juan
+Insert message: bye
+Do you want to add other user? y/n
+n
+the last user defined is: juan
+
+////////////////////////////////////////////////////////
+
+#Practice3
+
+def createFile
+	puts"Insert a file name: "
+	name = gets.chomp.to_s
+	puts"Insert an extension for the file: "
+	ext = gets.chomp.to_s
+	newFile = File.open("#{name}.#{ext}", 'a+')
+
+	#newFile.truncate(0)
+
+	print"Insert the number of lines to be added: "
+	lines = gets.chomp.to_i
+
+	for i in 1..lines 
+		puts "Insert the content of the line [#{i}]: "
+		written_text = gets.to_s
+		newFile.write(written_text)
+	end
+
+	newFile.close	
+	
+
+	newFile = File.open("#{name}.#{ext}")
+	puts newFile.read
+
+end
+
+createFile
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Ruby\Day11>ruby practice3.rb
+Insert a file name:
+nuevo
+Insert an extension for the file:
+txt
+Insert the number of lines to be added: 3
+Insert the content of the line [1]:
+a
+Insert the content of the line [2]:
+b
+Insert the content of the line [3]:
+c
+
+a
+b
+c
+

@@ -15,3 +15,5 @@ puts"Put a radius:"
 radius = gets.chomp.to_i
 Circle.new.area(radius)
 Circle.new.perimeter(radius)
+
+
