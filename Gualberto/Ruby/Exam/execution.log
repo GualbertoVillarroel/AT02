@@ -1,0 +1,20 @@
+Insert the amount of users between 3 and 15:  3
+Insert a Username: juan
+Insert an ID: 1
+Insert a Username: maria
+Insert an ID: 2
+Insert a Username: john
+Insert an ID: 3
+juan do you want to perform a calculation? y/n:  n
+Good bye juan
+maria do you want to perform a calculation? y/n:  n
+Good bye maria
+john do you want to perform a calculation? y/n:  y
+Select an option: 
+a. From milimeters to centimeters 
+b. From centimeter to meters 
+c. From meters to kilometers 
+Option selected: b
+Insert a value for the calculation:  1500.0
+From centimeters to meters: 15.0m
+The users that didn't perform any calculation are: ["juan", "maria"]
