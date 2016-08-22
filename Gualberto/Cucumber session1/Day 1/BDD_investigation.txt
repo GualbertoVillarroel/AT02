@@ -1,0 +1,70 @@
+When and why BDD was defined
+Behavior Driven Development combines the general techniques and principles of TDD with ideas from domain driven 
+design and object oriented analysis and design to provide software development and management teams with 
+shared tools and a shared process to collaborate on software development.
+
+
+The most important aspects of BDD
+BDD relies on the use of a very specific and small vocabulary to minimise miscommunication and to ensure 
+that everyone are not only on the same page also using the same words (Ubiquitous Language).
+
+
+Why is useful and when could be applied.
+Software development could be managed by both business interests and technical insight, the practice of BDD 
+does assume the use of specialized software tools to support the development process.
+
+
+Which type of teams could implement BDD
+The business, developers, testers, analysts and managers.
+
+
+Structure of a feature – Give an example
+Feature name is just a reminder to what need to be refined
+Structure:
+•	Name
+•	Size [Optional]
+•	Priority 
+
+
+Structure of a user story – Give an example
+A user story fully describes what a user can do with an application / service / system within the context of 
+a specific functional feature.
+Structure:
+–	Title (one line describing the story)
+–	Narrative:
+–	As a [role]
+–	I want [feature]
+–	So that [benefit]        
+
+Example:
+Story: Returns go to stock In order to keep track of stock As a store owner I want to add items back to stock 
+when they're returned
+
+
+Structure of a scenario – Give an example
+A test scenario describes a sequence of steps that mimic user actions that contain both conditions and assertions. 
+Simply put, a scenario is a test unit that should be executed autonomously within the context of a broader user 
+story which describes how a system should behave within the close boundaries of specific feature / functionality.
+Structure :
+•	Given some initial context (the givens)
+•	When an event occurs
+•	When ensure some outcomes
+Example:
+Scenario 1: Refunded items should be returned to stock 
+Given a customer previously bought a black sweater from me 
+And I currently have three black sweaters left in stock 
+When he returns the sweater for a refund 
+Then I should have four black sweaters in stock 
+
+Scenario 2: Replaced items should be returned to stock 
+Given that a customer buys a blue garment 
+And I have two blue garments in stock 
+And three black garments in stock. 
+When he returns the garment for a replacement in black, 
+Then I should have three blue garments in stock 
+And two black garments in stock
+
+
+Differences between BDD and BDT
+BDD is when the development and the testing is done from the beginning of the project, and BDT is when the 
+testing is done in an advanced stage of the project.
