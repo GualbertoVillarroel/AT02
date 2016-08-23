@@ -1,0 +1,25 @@
+#Practice 2
+
+#Copyright
+#Gualberto Villarroel
+#2016
+
+Feature: Creating a new feature
+This is the description of my new feature.
+
+..................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 2\Cucumber\features>cucumber search_customer.feature --dry-run
+*** WARNING: You must use ANSICON 1.31 or higher (https://github.com/adoxa/ansicon/) to get coloured output on Windows
+0 scenarios
+0 steps
+
+..................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 2\Cucumber\features>cucumber search_customer.feature
+*** WARNING: You must use ANSICON 1.31 or higher (https://github.com/adoxa/ansicon/) to get coloured output on Windows
+0 scenarios
+0 steps
+0m0.000s
+
+(When we run the feature without --dry-run the result is that the file is executed and the time of it is showed)
