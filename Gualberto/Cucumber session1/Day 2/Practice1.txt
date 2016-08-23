@@ -24,6 +24,12 @@ test-unit (3.0.8)
 
 ..................................................
 
+C:\BDT\AT02\Gualberto\Cucumber session1>cucumber --version
+*** WARNING: You must use ANSICON 1.31 or higher (https://github.com/adoxa/ansicon/) to get coloured output on Windows
+2.4.0
+
+..................................................
+
 C:\BDT\AT02\Gualberto\Cucumber session1\Day 2\Cucumber\features>gem search -l cucumber
 
 *** LOCAL GEMS ***
