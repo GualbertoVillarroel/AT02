@@ -1,0 +1,15 @@
+Feature: My daily activities
+
+Scenario: Wake up all mornings using some alarm
+	Given I have a cell phone
+		And I have an alarm set to 7:00AM
+	When The alarm rings
+	Then I hear it and I wake up
+
+
+#Since the last month
+Scenario: Go to the Jala-Foundation
+	* I wake up in mornings
+		But Only from Monday to Friday
+	* I finish my breakfast
+	* I go to the Foundation
