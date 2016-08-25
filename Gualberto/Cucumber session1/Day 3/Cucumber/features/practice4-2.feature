@@ -9,4 +9,3 @@ Scenario: Select sign in or create an account
 	Given I select create an account
 	When I insert a new username
 		And I insert a new password
-	The The new account should be created

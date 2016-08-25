@@ -1,0 +1,162 @@
+#practice3-1_1
+
+Feature: Universtity classes
+
+Scenario: Go early to classes
+	Given I have a class at 8:00AM
+	When I take a bus at 7:00AM to go class
+	Then I arrive early
+
+Scenario: Final exam of programming
+	Given I have the final exam of the semester
+		And I studied all the topics
+	When The test begins
+		And I ready to answer all the questions
+	Then I should get a good grade
+
+//////////////////////////////////////////////////////////////
+#practice3-1_2
+
+Feature: My daily activities
+
+Scenario: Wake up all mornings using some alarm
+	Given I have a cell phone
+		And I have an alarm set to 7:00AM
+	When The alarm rings
+	Then I hear it and I wake up
+
+
+#Since the last month
+Scenario: Go to the Jala-Foundation
+	* I wake up in mornings
+		But Only from Monday to Friday
+	* I finish my breakfast
+	* I go to the Foundation
+
+//////////////////////////////////////////////////////////////
+#practice3-2
+
+Feature: Testing Google main page
+
+Scenario: Run a browser and open the Google page
+	Given I open the browser Google Chrome
+	When I put the page to go to Google.com
+	Then The main page of Google should be shown
+
+Scenario: Verify that the logo of Google is shown
+	Given I go to the Google main page
+	When The loading is done
+	Then The logo of Google should be shown
+
+Scenario: Hide the default message of the search bar
+	Given I go to the Google main page
+	When I clic on the search bar
+	Then The default message written in the search bar should disappear
+
+Scenario: 
+	Given I go to the Google main page
+	When I put "cars" in the search bar field
+		And I press "Enter"
+	Then The browser should show links related to cars
+
+
+//////////////////////////////////////////////////////////////
+#practice4-1
+
+Feature:
+Scenario:
+When I have $100 in my Account
+ And I have $250 in my Account
+
+#When I change Given for When it is still working
+
+..............................................................
+#step_practice4-1
+
+Given(/^I have \$(100|250) in my Account$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+..............................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 3\Cucumber>cucumber features/practice4-1.feature
+Feature:
+
+  Scenario:                        # features/practice4-1.feature:2
+    When I have $100 in my Account # features/step_definitions/practice4-1.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/practice4-1.rb:2:in `/^I have \$(100|250) in my Account$/'
+      features/practice4-1.feature:3:in `When I have $100 in my Account'
+    And I have $250 in my Account  # features/step_definitions/practice4-1.rb:1
+
+1 scenario (1 pending)
+2 steps (1 skipped, 1 pending)
+0m0.086s
+
+//////////////////////////////////////////////////////////////
+#practice4-2
+
+Feature: Select an option
+
+Scenario: Select sign in or create an account
+	Given I select sign in
+	When I insert the username
+		And I insert the password
+	Then The user can access to the web page
+	
+	Given I select create an account
+	When I insert a new username
+		And I insert a new password
+
+..............................................................
+
+#practice4-2
+
+Given(/^I select sign in$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I insert the username$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I insert the password$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^The user can access to the web page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I select create an account$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I insert a new username$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I insert a new password$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+..............................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 3\Cucumber>cucumber features/practice4-2.feature
+Feature: Select an option
+
+  Scenario: Select sign in or create an account # features/practice4-2.feature:3
+    Given I select sign in                      # features/step_definitions/step_practice4-2.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-2.rb:2:in `/^I select sign in$/'
+      features/practice4-2.feature:4:in `Given I select sign in'
+    When I insert the username                  # features/step_definitions/step_practice4-2.rb:5
+    And I insert the password                   # features/step_definitions/step_practice4-2.rb:9
+    Then The user can access to the web page    # features/step_definitions/step_practice4-2.rb:13
+    Given I select create an account            # features/step_definitions/step_practice4-2.rb:17
+    When I insert a new username                # features/step_definitions/step_practice4-2.rb:21
+    And I insert a new password                 # features/step_definitions/step_practice4-2.rb:25
+
+1 scenario (1 pending)
+7 steps (6 skipped, 1 pending)
+0m0.143s
