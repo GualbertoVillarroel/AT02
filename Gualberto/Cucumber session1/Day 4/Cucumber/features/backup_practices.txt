@@ -1,0 +1,281 @@
+#practice4-3.feature
+
+Feature: Character classes
+
+Scenario: Validation steps
+	Given I have a ZipCode that is: 123456
+	Given I create a new Username: register
+	Given I have a country: Bolivia
+
+.........................................................
+#step_practice4-3.rb
+
+Given(/^I have a ZipCode that is: (\d+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I create a new Username: ([a-z]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have a country: ([A-Za-z]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 4\Cucumber>cucumber features/practice4-3.feature
+Feature: Character classes
+
+  Scenario: Validation steps                # features/practice4-3.feature:3
+    Given I have a ZipCode that is: 123456  # features/step_definitions/step_practice4-3.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-3.rb:2:in `/^I have a ZipCode that is: (\d+)$/'
+      features/practice4-3.feature:4:in `Given I have a ZipCode that is: 123456'
+    Given I create a new Username: register # features/step_definitions/step_practice4-3.rb:5
+    Given I have a country: Bolivia         # features/step_definitions/step_practice4-3.rb:9
+
+1 scenario (1 pending)
+3 steps (2 skipped, 1 pending)
+0m0.109s
+
+/////////////////////////////////////////////////////////
+
+#practice4-4.feature
+
+Feature: Form to create a new gmail account
+
+Scenario: Name
+	Given I put my first name: Gualberto
+		And I put my last name: Villarroel
+
+Scenario: Username
+	Given I choose a username: gualyvc@gmail.com
+
+Scenario: Password
+	Given I create a password: Abc123
+		And I confirm the password: Abc123
+
+Scenario: Birthday
+	Given I select a month: July
+		And I put a day: 07
+			And I put a year: 1986
+
+Scenario: Gender
+	Given I select a gender: Male
+
+Scenario: Mobile Phone
+	Given I put my mobile phone: 79343337
+
+Scenario: Current email address
+	Given I put my current email: gualyvc@hotmail.com
+
+.........................................................
+
+#step_practice4-4.rb
+
+Given(/^I put my first name: ([A-Za-z]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I put my last name: ([A-Za-z]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I choose a username: ([A-Za-z]*)@gmail\.com$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I create a password: ([\w+.]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I confirm the password: ([A-Za-z0-9.]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I select a month: ([January|February|March|April|May|June|July|August|September|October|November|December]+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I put a day: ([0-3+][0-9+])$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I put a year: ([1-2+][0-9+][0-9+][0-9+])$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I select a gender: ([Male|male|Female|female]+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I put my mobile phone: (\d+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+ 
+Given(/^I put my current email: ([A-Za-z0-9.@]*)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 4\Cucumber>cucumber features/practice4-4.feature
+Feature: Form to create a new gmail account
+
+  Scenario: Name                         # features/practice4-4.feature:3
+    Given I put my first name: Gualberto # features/step_definitions/step_practice4-4.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:2:in `/^I put my first name: ([A-Za-z]*)$/'
+      features/practice4-4.feature:4:in `Given I put my first name: Gualberto'
+    And I put my last name: Villarroel   # features/step_definitions/step_practice4-4.rb:5
+
+  Scenario: Username                             # features/practice4-4.feature:7
+    Given I choose a username: gualyvc@gmail.com # features/step_definitions/step_practice4-4.rb:9
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:10:in `/^I choose a username: ([A-Za-z]*)@gmail\.com$/'
+      features/practice4-4.feature:8:in `Given I choose a username: gualyvc@gmail.com'
+
+  Scenario: Password                   # features/practice4-4.feature:10
+    Given I create a password: Abc123  # features/step_definitions/step_practice4-4.rb:13
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:14:in `/^I create a password: ([\w+.]*)$/'
+      features/practice4-4.feature:11:in `Given I create a password: Abc123'
+    And I confirm the password: Abc123 # features/step_definitions/step_practice4-4.rb:17
+
+  Scenario: Birthday             # features/practice4-4.feature:14
+    Given I select a month: July # features/step_definitions/step_practice4-4.rb:21
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:22:in `/^I select a month: ([January|February|March|April|May|June|July|August|September|October|November|December]+)$/'
+      features/practice4-4.feature:15:in `Given I select a month: July'
+    And I put a day: 07          # features/step_definitions/step_practice4-4.rb:25
+    And I put a year: 1986       # features/step_definitions/step_practice4-4.rb:29
+
+  Scenario: Gender                # features/practice4-4.feature:19
+    Given I select a gender: Male # features/step_definitions/step_practice4-4.rb:33
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:34:in `/^I select a gender: ([Male|male|Female|female]+)$/'
+      features/practice4-4.feature:20:in `Given I select a gender: Male'
+
+  Scenario: Mobile Phone                  # features/practice4-4.feature:22
+    Given I put my mobile phone: 79343337 # features/step_definitions/step_practice4-4.rb:37
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:38:in `/^I put my mobile phone: (\d+)$/'
+      features/practice4-4.feature:23:in `Given I put my mobile phone: 79343337'
+
+  Scenario: Current email address                     # features/practice4-4.feature:25
+    Given I put my current email: gualyvc@hotmail.com # features/step_definitions/step_practice4-4.rb:41
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice4-4.rb:42:in `/^I put my current email: ([A-Za-z0-9.@]*)$/'
+      features/practice4-4.feature:26:in `Given I put my current email: gualyvc@hotmail.com'
+
+7 scenarios (7 pending)
+11 steps (4 skipped, 7 pending)
+0m0.483s
+
+/////////////////////////////////////////////////////////
+
+#practice5-1.feature
+
+Feature: System for airpot
+
+Scenario: Departure lounge screen
+
+Given the flight EZY4567 is leaving today
+
+Given the flight C038 is leaving today
+
+Given the flight BA01618 is leaving today
+
+.........................................................
+
+#step_practice5-1.rb
+
+Given(/^the flight ([A-Z0-9]+) is leaving today$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 4\Cucumber>cucumber features/practice5-1.feature
+Feature: System for airpot
+
+  Scenario: Departure lounge screen           # features/practice5-1.feature:3
+    Given the flight EZY4567 is leaving today # features/step_definitions/step_practice5-1.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice5-1.rb:2:in `/^the flight ([A-Z0-9]+) is leaving today$/'
+      features/practice5-1.feature:5:in `Given the flight EZY4567 is leaving today'
+    Given the flight C038 is leaving today    # features/step_definitions/step_practice5-1.rb:1
+    Given the flight BA01618 is leaving today # features/step_definitions/step_practice5-1.rb:1
+
+1 scenario (1 pending)
+3 steps (2 skipped, 1 pending)
+0m0.107s
+
+/////////////////////////////////////////////////////////
+
+#practice5-2.feature
+
+Feature: 
+Scenario: Buy apples
+	Given I want to buy 7 apples
+		And I have to pay $7 with cash
+			And I have to bring the fruit to home
+
+Scenario: Sent mail
+	Given I want to sent 1 email
+		And I have to use 2MB through my LTE connection
+			And I have to pay the service
+
+.........................................................
+
+#step_practice5-2.rb
+
+Given(/^I want to buy (\d+) apples?$/) do |cant|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have to pay \$(\d+) with (\w+)$/) do |money, method|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have to bring the fruit to (?:home|work)$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I want to sent (\d+) emails?$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have to use (\d+)MB through my (\w+) connection$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^I have to (?:pay|buy) the service$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+.........................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 4\Cucumber>cucumber features/practice5-2.feature
+Feature:
+
+  Scenario: Buy apples                    # features/practice5-2.feature:2
+    Given I want to buy 7 apples          # features/step_definitions/step_practice5-2.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice5-2.rb:2:in `/^I want to buy (\d+) apples?$/'
+      features/practice5-2.feature:3:in `Given I want to buy 7 apples'
+    And I have to pay $7 with cash        # features/step_definitions/step_practice5-2.rb:5
+    And I have to bring the fruit to home # features/step_definitions/step_practice5-2.rb:9
+
+  Scenario: Sent mail                               # features/practice5-2.feature:7
+    Given I want to sent 1 email                    # features/step_definitions/step_practice5-2.rb:13
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/step_practice5-2.rb:14:in `/^I want to sent (\d+) emails?$/'
+      features/practice5-2.feature:8:in `Given I want to sent 1 email'
+    And I have to use 2MB through my LTE connection # features/step_definitions/step_practice5-2.rb:17
+    And I have to pay the service                   # features/step_definitions/step_practice5-2.rb:21
+
+2 scenarios (2 pending)
+6 steps (4 skipped, 2 pending)
+0m0.209s

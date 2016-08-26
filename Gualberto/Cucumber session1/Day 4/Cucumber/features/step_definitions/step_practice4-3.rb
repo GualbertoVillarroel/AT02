@@ -1,11 +1,11 @@
-Given(/^I have a zipcode: (\d+)$/) do |arg1|
+Given(/^I have a ZipCode that is: (\d+)$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given(/^I have username: newuser$/) do
+Given(/^I create a new Username: ([a-z]*)$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given(/^I have a country: Bolivia$/) do
+Given(/^I have a country: ([A-Za-z]*)$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end

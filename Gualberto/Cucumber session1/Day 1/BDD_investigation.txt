@@ -15,7 +15,7 @@ does assume the use of specialized software tools to support the development pro
 
 
 Which type of teams could implement BDD
-The business, developers, testers, analysts and managers.
+Any software development team should apply it
 
 
 Structure of a feature – Give an example
