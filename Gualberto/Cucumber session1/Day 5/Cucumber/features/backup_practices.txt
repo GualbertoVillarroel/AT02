@@ -1,0 +1,146 @@
+#practice5-3.feature
+
+Feature:
+Scenario:
+Given a board like this:
+|    | 1 | 2 | 3 |
+| 1 |   |   |   |
+| 2 |   |   |   |
+| 3 |   |   |   |
+When player y plays in row 2, column 1
+Then the board should look like this:
+|    | 1 | 2 | 3 |
+| 1 |    |   |   |
+| 2 | x |   |   |
+| 3 |    |   |   |
+
+............................................................
+
+#step_practice5-3.rb
+
+Given(/^a board like this:$/) do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  @board = table.raw
+end
+
+When(/^player ([\w+]) plays in row (\d+), column (\d+)$/) do |player,row, col|
+	row, col = row.to_i, col.to_i
+    @board[row][col] = player
+end
+
+Then(/^the board should look like this:$/) do |expected_table|
+	expected_table.diff!(@board)
+  # table is a Cucumber::MultilineArgument::DataTable
+end
+
+............................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 5\Cucumber>cucumber features\practice5-3.feature
+Feature:
+
+  Scenario:                                # features/practice5-3.feature:2
+    Given a board like this:               # features/step_definitions/step_practice5-3.rb:1
+      |   | 1 | 2 | 3 |
+      | 1 |   |   |   |
+      | 2 |   |   |   |
+      | 3 |   |   |   |
+    When player y plays in row 2, column 1 # features/step_definitions/step_practice5-3.rb:6
+    Then the board should look like this:  # features/step_definitions/step_practice5-3.rb:11
+      |   | 1 | 2 | 3 |
+      | 1 |   |   |   |
+      | 2 | x |   |   |
+      | 3 |   |   |   |
+      Tables were not identical:
+
+        |       |     1 |     2 |     3 |
+        |     1 |       |       |       |
+        | (-) 2 | (-) x | (-)   | (-)   |
+        | (+) 2 | (+) y | (+)   | (+)   |
+        |     3 |       |       |       |
+       (Cucumber::MultilineArgument::DataTable::Different)
+      ./features/step_definitions/step_practice5-3.rb:12:in `/^the board should look like this:$/'
+      features/practice5-3.feature:9:in `Then the board should look like this:'
+
+Failing Scenarios:
+cucumber features/practice5-3.feature:2 # Scenario:
+
+1 scenario (1 failed)
+3 steps (1 failed, 2 passed)
+0m0.212s
+
+////////////////////////////////////////////////////////////
+
+#practice5-4.feature
+
+Feature: Daily activities 
+	
+Background: 
+	Given I am at Jala Foundation
+		And I have BDT class
+			And I have to do some tasks:
+			| Task1 |  |
+			| Task2 | Exam |
+
+Scenario: Ruby tasks
+	When I work on Ruby tasks
+	Then The task's table should look:
+	| Task1 | Ruby |
+	| Task2 | Exam |
+
+Scenario: Cucumber tasks
+	When I work on Cucumber tasks
+	Then The task's table should look:
+	| Task1 | Cucumber |
+	| Task2 | Exam |
+............................................................
+
+#step_practice5-4.rb
+
+Given(/^I am at Jala Foundation$/) do
+  
+end
+
+Given(/^I have BDT class$/) do
+  
+end
+
+Given(/^I have to do some tasks:$/) do |table|
+   @task_table = table.raw
+end
+
+When(/^I work on (\w+) tasks$/) do |task|
+  @task_table[0][1] = task
+
+end
+
+Then(/^The task's table should look:$/) do |expected_table|
+  expected_table.diff!(@task_table)
+end
+
+............................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 5\Cucumber>cucumber features\practice5-4.feature
+Feature: Daily activities
+
+  Background:                     # features/practice5-4.feature:3
+    Given I am at Jala Foundation # features/step_definitions/step_practice5-4.rb:1
+    And I have BDT class          # features/step_definitions/step_practice5-4.rb:5
+    And I have to do some tasks:  # features/step_definitions/step_practice5-4.rb:9
+      | Task1 |      |
+      | Task2 | Exam |
+
+  Scenario: Ruby tasks                 # features/practice5-4.feature:10
+    When I work on Ruby tasks          # features/step_definitions/step_practice5-4.rb:13
+    Then The task's table should look: # features/step_definitions/step_practice5-4.rb:18
+      | Task1 | Ruby |
+      | Task2 | Exam |
+
+  Scenario: Cucumber tasks             # features/practice5-4.feature:16
+    When I work on Cucumber tasks      # features/step_definitions/step_practice5-4.rb:13
+    Then The task's table should look: # features/step_definitions/step_practice5-4.rb:18
+      | Task1 | Cucumber |
+      | Task2 | Exam     |
+
+2 scenarios (2 passed)
+10 steps (10 passed)
+0m0.217s
