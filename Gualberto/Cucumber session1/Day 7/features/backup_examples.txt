@@ -1,0 +1,211 @@
+#example6-5.feature
+
+Feature: Withdraw Fixed
+
+Scenario: Withdraw fixed amount of $50
+   Given I have $500 in my account
+   When I choose to withdraw the fixed amount of $50
+   Then I should receive $50 cash
+         And the balance of my account should be $450
+
+.......................................................................
+
+#step_example6-5.rb
+
+Given(/^I have \$(\d+) in my account$/) do |balance|
+    #Juts keep the value inserted
+    @balance = balance.to_i
+end
+
+When(/^I choose to withdraw the fixed amount of \$(\d+)$/) do |withdraw|
+   #Juts keep the value inserted
+    @money= withdraw.to_i
+end
+
+Then(/^I should receive \$(\d+) cash$/) do |cash|
+   #Just print the cash received
+  puts "This is your $#{cash}"
+end
+
+Then(/^the balance of my account should be \$(\d+)$/) do |remaining|
+    @remaining_calculated = @balance - @money
+    expect(@remaining_calculated).to eql(remaining.to_i)
+end
+
+.......................................................................
+
+#hooks.rb
+
+Before do |scenario|
+  puts " Let's Go scenario: #{scenario.name}"
+end
+
+After do |scenario|
+   if scenario.failed?
+    puts  "Faile#{scenario.exception.message}" 
+   else
+   	 puts " Bye Bye it Passed"
+  end
+end
+
+.......................................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day D>cucumber features/example6-5.feature
+Feature: Withdraw Fixed
+
+  Scenario: Withdraw fixed amount of $50              # features/example6-5.feature:3
+       Let's Go scenario: Withdraw fixed amount of $50
+    Given I have $500 in my account                   # features/step_definitions/step_example6-5.rb:1
+    When I choose to withdraw the fixed amount of $50 # features/step_definitions/step_example6-5.rb:6
+    Then I should receive $50 cash                    # features/step_definitions/step_example6-5.rb:11
+      This is your $50
+    And the balance of my account should be $450      # features/step_definitions/step_example6-5.rb:16
+       Bye Bye it Passed
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m0.143s
+
+
+//////////////////////////////////////////////////////////////////////
+
+#practice6-1.feature
+Feature: Customer search
+@outline
+Scenario Outline: 
+    Given I search user <USER>
+    When I insert id <ID>
+    Then I have priced <PRICE>
+
+	Examples:
+	| USER  | ID   | PRICE |
+	| pepe  | 123  | 100 |
+	| juan  | 456  | 200 |
+	| maria | 789  | 300 |
+
+@normal
+Scenario: Searching a client
+    Given I search user pepe
+    When I insert id 123
+    Then I have priced 100
+
+.......................................................................
+
+Given(/^I search user (\w.*)$/) do |user|
+  #@username = user
+  var = client.client_id
+  result = var.has_key?(user)
+  expect(result).to be true
+end
+
+When(/^I insert id (\d+)$/) do |id|
+  var = client.client_id
+  result = var.has_value?(id)
+  expect(result).to be true
+end
+
+Then(/^I have priced (\d+)$/) do |price|
+  var = client.priced
+  result = var.has_value?(price)
+  expect(result).to be true
+end
+
+.......................................................................
+
+Before('@outline') do |scenario|
+	puts "I am running an outline scenario: #{scenario.name} \n"
+end
+
+Before('@normal') do |scenario|
+	puts "I am running a normal scenario: #{scenario.name} \n"
+end
+
+Before('@normal, @outline') do
+	puts "CUSTOMER SEARCH TEST \n"
+end
+
+After('@outline', '~@normal') do 
+ 	puts "SEARCHIN.. \n"
+end
+
+After('@outline') do |scenario|
+	puts "I finished running the outline scenario \n"
+	if scenario.failed?
+		puts "Faile #{scenario.exception.message}"
+	end
+end
+
+After('@normal') do |scenario|
+	puts "I finished running a normal scenario \n"
+	if scenario.failed?
+		puts "Faile #{scenario.exception.message}"
+	end
+end
+
+.......................................................................
+
+class Client
+	def client_id
+		clients = {
+		    'pepe' => '123',
+		    'juan' => '456',
+		    'maria' => '789'
+		}
+
+	end
+	def priced		
+		priced = {
+		    '123' => '100',
+		    '456' => '200',
+		    '789' => '300'
+		}
+	end
+end
+
+def client
+	@client ||= Client.new
+end
+
+.......................................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day D>cucumber features/practice6-1.feature
+Feature: Customer search
+
+  @outline
+  Scenario Outline:            # features/practice6-1.feature:3
+    Given I search user <USER> # features/practice6-1.feature:4
+    When I insert id <ID>      # features/practice6-1.feature:5
+    Then I have priced <PRICE> # features/practice6-1.feature:6
+
+    Examples:
+      | USER  | ID  | PRICE |
+      | pepe  | 123 | 100   |   Let's Go scenario: , Examples (#1), I am running an outline scenario: , Examples (#1)
+  , CUSTOMER SEARCH TEST
+  , I finished running the outline scenario
+  , SEARCHIN..
+  ,  Bye Bye it Passed
+      | juan  | 456 | 200   |   Let's Go scenario: , Examples (#2), I am running an outline scenario: , Examples (#2)
+  , CUSTOMER SEARCH TEST
+  , I finished running the outline scenario
+  , SEARCHIN..
+  ,  Bye Bye it Passed
+      | maria | 789 | 300   |   Let's Go scenario: , Examples (#3), I am running an outline scenario: , Examples (#3)
+  , CUSTOMER SEARCH TEST
+  , I finished running the outline scenario
+  , SEARCHIN..
+  ,  Bye Bye it Passed
+
+  @normal
+  Scenario: Searching a client # features/practice6-1.feature:15
+       Let's Go scenario: Searching a client
+      I am running a normal scenario: Searching a client
+      CUSTOMER SEARCH TEST
+    Given I search user pepe   # features/step_definitions/step_practice6-1.rb:1
+    When I insert id 123       # features/step_definitions/step_practice6-1.rb:8
+    Then I have priced 100     # features/step_definitions/step_practice6-1.rb:14
+      I finished running a normal scenario
+       Bye Bye it Passed
+
+4 scenarios (4 passed)
+12 steps (12 passed)
+0m0.303s
