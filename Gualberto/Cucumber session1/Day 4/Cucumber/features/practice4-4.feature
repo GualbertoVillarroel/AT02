@@ -14,7 +14,7 @@ Scenario: Password
 Scenario: Birthday
 	Given I select a month: July
 		And I put a day: 07
-			And I put a year: 1986
+		And I put a year: 1986
 
 Scenario: Gender
 	Given I select a gender: Male

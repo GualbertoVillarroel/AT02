@@ -3,9 +3,9 @@ Feature: Daily activities
 Background: 
 	Given I am at Jala Foundation
 		And I have BDT class
-			And I have to do some tasks:
-			| Task1 |  |
-			| Task2 | Exam |
+		And I have to do some tasks:
+		| Task1 |  |
+		| Task2 | Exam |
 
 Scenario: Ruby tasks
 	When I work on Ruby tasks
