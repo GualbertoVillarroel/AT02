@@ -1,0 +1,137 @@
+#practice6-1.feature
+
+Feature: Customer search
+@outline
+Scenario Outline: 
+    Given I search user <USER>
+    When I insert id <ID>
+    Then I have priced <PRICE>
+
+	Examples:
+	| USER  | ID   | PRICE |
+	| pepe  | 123  | 100 |
+	| juan  | 456  | 200 |
+	| maria | 789  | 300 |
+
+@normal
+Scenario: Searching a client
+    Given I search user pepe
+    When I insert id 123
+    Then I have priced 100
+
+.......................................................................
+#step_practice6-1.rb
+
+Given(/^I search user (\w+)$/) do |user|
+  #@username = user
+  var = client.client_id
+  result = var.has_key?(user)
+  expect(result).to be true
+end
+
+When(/^I insert id (\d+)$/) do |id|
+  var = client.client_id
+  result = var.has_value?(id)
+  expect(result).to be true
+end
+
+Then(/^I have priced (\d+)$/) do |price|
+  var = client.priced
+  result = var.has_value?(price)
+  expect(result).to be true
+end
+
+.......................................................................
+#hooks_client_rb
+
+Before('@outline') do |scenario|
+	puts "I am running an outline scenario: #{scenario.name} \n"
+end
+
+Before('@normal') do |scenario|
+	puts "I am running a normal scenario: #{scenario.name} \n"
+end
+
+After('@outline') do |scenario|
+	if scenario.failed?
+		puts "Faile #{scenario.exception.message}"
+	else
+		puts "I finished running the outline scenario \n"
+	end
+end
+
+After('@normal') do |scenario|
+	if scenario.failed?
+		puts "Faile #{scenario.exception.message}"
+	else
+		puts "I finished running a normal scenario \n"
+	end
+end
+
+Before('@outline','@normal') do
+	puts "CUSTOMER SEARCH TEST \n"
+end
+
+After('@outline','~@normal') do 
+ 	puts "SEARCHIN.. \n"
+end
+
+.......................................................................
+client.rb
+
+class Client
+	def client_id
+		clients = {
+		    'pepe' => '123',
+		    'juan' => '456',
+		    'maria' => '789'
+		}
+
+	end
+	def priced		
+		priced = {
+		    '123' => '100',
+		    '456' => '200',
+		    '789' => '300'
+		}
+	end
+end
+
+def client
+	@client ||= Client.new
+end
+
+.......................................................................
+
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 7-2\Cucumber>cucumber features/practice6-1.feature
+Feature: Customer search
+
+  @outline
+  Scenario Outline:            # features/practice6-1.feature:3
+    Given I search user <USER> # features/practice6-1.feature:4
+    When I insert id <ID>      # features/practice6-1.feature:5
+    Then I have priced <PRICE> # features/practice6-1.feature:6
+
+    Examples:
+      | USER  | ID  | PRICE |
+      | pepe  | 123 | 100   |  I am running an outline scenario: , Examples (#1)
+  , SEARCHIN..
+  , I finished running the outline scenario
+      | juan  | 456 | 200   |  I am running an outline scenario: , Examples (#2)
+  , SEARCHIN..
+  , I finished running the outline scenario
+      | maria | 789 | 300   |  I am running an outline scenario: , Examples (#3)
+  , SEARCHIN..
+  , I finished running the outline scenario
+
+  @normal
+  Scenario: Searching a client # features/practice6-1.feature:15
+      I am running a normal scenario: Searching a client
+    Given I search user pepe   # features/step_definitions/step_practice6-1.rb:1
+    When I insert id 123       # features/step_definitions/step_practice6-1.rb:8
+    Then I have priced 100     # features/step_definitions/step_practice6-1.rb:14
+      I finished running a normal scenario
+
+4 scenarios (4 passed)
+12 steps (12 passed)
+0m0.206s

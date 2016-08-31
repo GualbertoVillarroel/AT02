@@ -1,0 +1,167 @@
+#file.feature
+
+Feature:
+Scenario Outline: Verifying a list of users
+	Given Admin user is defined
+	When I insert user <USER>
+	Then I verify that the user exists
+	Examples:
+	| USER |
+	| pepe |
+	| juan |
+	| maria |
+
+Scenario: Verifying a user exists
+	Given Admin user is defined
+	When I insert user pepe
+	Then I verify that the user exists
+
+Scenario: Verifying a user doesn't exists
+	Given Admin user is defined
+	When I insert user pedro
+	Then I verify that the user doesn't exists
+
+...............................................................
+#step_file.rb
+
+Given(/^Admin user is defined$/) do
+	expect($app_user).to_not be nil
+end
+
+When(/^I insert user (\w+)$/) do |user|
+	@bool = false
+	$userNames.each do |usr_each|
+		if(usr_each ==  user)
+			@bool = true
+		end
+	end
+end
+
+Then(/^I verify that the user exists$/) do
+  expect(@bool).to be(true)
+end
+
+Then(/^I verify that the user doesn't exists$/) do
+  expect(@bool).to be(false)
+end
+
+...............................................................
+@helper.rb
+
+module Users
+	def Users.load_users
+	##load static list users and password into a hash
+		@static_users = {
+		    'pepe' => '123',
+		    'juan' => '456',
+		    'maria' => '789'
+		}
+	end
+
+	def Users.get_list_of_users(hash)
+		@list_user = @static_users.keys
+	end
+
+	def Users.extract_user_from_array(user,array)
+	end
+	
+	def Users.exist_on_array?(user,array)
+	end
+end
+...............................................................
+@config.yml
+
+# top level
+app:
+  #options in level
+  admin_user: gualberto
+  admin_pass: admin123
+  host: www.yahoo.com
+
+db:
+  #options in level
+  db_user: db525
+  db_pass: db525
+  host: 10.10.0.56
+  SID: test
+
+
+remote:
+  #options in level
+  user: gualberto
+  pass: admin123
+  host: 10.31.10.5
+...............................................................
+@env.rb
+
+require 'pathname'
+require 'yaml'
+
+AfterConfiguration do |config|
+  # read config file
+  configuration = load_app_config_file('config.yml')    #Se puede cambiar config.yml
+  # Load application configuration parameters
+  $app_user = configuration['app']['admin_user']        #Se puede cambiar el 'app' top level
+  $app_pass = configuration['app']['admin_pass']        #Y los 'admin_...' options in level
+  $app_host = configuration['app']['host']
+  $db_user = configuration['db']['db_user']
+end
+
+
+#No es necesario hacer cambios en el codigo siguiente
+
+def find_config_file(filename)
+  root = Pathname.pwd
+  while not root.root?
+    root.find do |path|
+      if path.file? and path.basename.to_s == filename
+        return path.to_s
+      end
+    end
+    root = root.parent
+  end
+  raise 'Configuration file ' #{filename}' not found!'
+end
+
+
+def load_app_config_file(filename)
+  config_file = find_config_file(filename)
+  config = YAML.load_file(config_file)
+  $app_context = config['app']['host']
+  return config
+end
+...............................................................
+@hooks.rb
+
+Before do |scenario|
+  	$userNames = Users.get_list_of_users(Users.load_users)
+end
+
+...............................................................
+C:\BDT\AT02\Gualberto\Cucumber session1\Day 8-1\Cucumber>cucumber features/file.feature
+Feature:
+
+  Scenario Outline: Verifying a list of users # features/file.feature:2
+    Given Admin user is defined               # features/file.feature:3
+    When I insert user <USER>                 # features/file.feature:4
+    Then I verify that the user exists        # features/file.feature:5
+
+    Examples:
+      | USER  |
+      | pepe  |
+      | juan  |
+      | maria |
+
+  Scenario: Verifying a user exists    # features/file.feature:12
+    Given Admin user is defined        # features/step_definitions/step_file.rb:1
+    When I insert user pepe            # features/step_definitions/step_file.rb:5
+    Then I verify that the user exists # features/step_definitions/step_file.rb:14
+
+  Scenario: Verifying a user doesn't exists    # features/file.feature:17
+    Given Admin user is defined                # features/step_definitions/step_file.rb:1
+    When I insert user pedro                   # features/step_definitions/step_file.rb:5
+    Then I verify that the user doesn't exists # features/step_definitions/step_file.rb:18
+
+5 scenarios (5 passed)
+15 steps (15 passed)
+0m0.172s

@@ -1,4 +1,4 @@
-Given(/^I search user (\w.*)$/) do |user|
+Given(/^I search user (\w+)$/) do |user|
   #@username = user
   var = client.client_id
   result = var.has_key?(user)

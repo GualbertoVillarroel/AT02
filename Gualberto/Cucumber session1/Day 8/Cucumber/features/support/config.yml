@@ -1,0 +1,20 @@
+# top level
+app:
+  #options in level
+  admin_user: gualberto
+  admin_pass: admin123
+  host: www.yahoo.com
+
+db:
+  #options in level
+  db_user: db525
+  db_pass: db525
+  host: 10.10.0.56
+  SID: test
+
+
+remote:
+  #options in level
+  user: gualberto
+  pass: admin123
+  host: 10.31.10.5
