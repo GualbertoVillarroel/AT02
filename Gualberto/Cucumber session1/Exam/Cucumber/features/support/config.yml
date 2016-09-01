@@ -1,0 +1,6 @@
+# top level
+app:
+  #options in level
+  admin_user: gualberto
+  admin_pass: admin123
+  host: www.yahoo.com

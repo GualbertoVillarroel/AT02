@@ -3,12 +3,7 @@ Given(/^Admin user is defined$/) do
 end
 
 When(/^I insert user (\w+)$/) do |user|
-	@bool = false
-	$userNames.each do |usr_each|
-		if(usr_each ==  user)
-			@bool = true
-		end
-	end
+	@bool
 end
 
 Then(/^I verify that the user exists$/) do
